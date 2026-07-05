@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="100%" height="100%">
+    <defs>
+        <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0f172a" />
+            <stop offset="100%" stop-color="#1e1b4b" />
+        </linearGradient>
+        
+        <linearGradient id="textGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#38bdf8" />
+            <stop offset="100%" stop-color="#818cf8" />
+        </linearGradient>
+
+        <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="5" result="blur" />
+            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+    </defs>
+
+    <rect width="100%" height="100%" fill="url(#bg)" rx="15" ry="15"/>
+
+    <!-- Dynamic background elements -->
+    <g opacity="0.4">
+        <!-- Floating glowing circles -->
+        <circle cx="150" cy="100" r="40" fill="#38bdf8" filter="url(#glow)">
+            <animate attributeName="cy" values="100;70;100" dur="4s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.3;0.6;0.3" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="650" cy="120" r="50" fill="#818cf8" filter="url(#glow)">
+            <animate attributeName="cy" values="120;150;120" dur="5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="400" cy="50" r="20" fill="#c084fc" filter="url(#glow)">
+            <animate attributeName="cy" values="50;30;50" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.2;0.5;0.2" dur="3s" repeatCount="indefinite" />
+        </circle>
+
+        <!-- Animated Wave/Data representation -->
+        <path d="M 0 150 C 100 100, 200 200, 400 150 C 600 100, 700 200, 800 150" fill="none" stroke="#6366f1" stroke-width="2" stroke-dasharray="10 5" opacity="0.6">
+            <animate attributeName="d" values="
+                M 0 150 C 100 100, 200 200, 400 150 C 600 100, 700 200, 800 150;
+                M 0 150 C 100 200, 200 100, 400 150 C 600 200, 700 100, 800 150;
+                M 0 150 C 100 100, 200 200, 400 150 C 600 100, 700 200, 800 150" 
+                dur="4s" repeatCount="indefinite" />
+        </path>
+    </g>
+
+    <!-- Floating Hexagons (Chemical structures) -->
+    <g stroke="#38bdf8" stroke-width="2" fill="none">
+        <polygon points="120,40 135,30 150,40 150,60 135,70 120,60">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,10; 0,0" dur="4s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" values="0 135 50; 360 135 50" dur="15s" repeatCount="indefinite" additive="sum"/>
+        </polygon>
+        <polygon points="680,130 695,120 710,130 710,150 695,160 680,150">
+            <animateTransform attributeName="transform" type="translate" values="0,0; 0,-15; 0,0" dur="5s" repeatCount="indefinite" />
+            <animateTransform attributeName="transform" type="rotate" values="0 695 140; -360 695 140" dur="20s" repeatCount="indefinite" additive="sum"/>
+        </polygon>
+    </g>
+
+    <!-- Crosses/Stars (AI/Sparkles) -->
+    <g fill="#c084fc">
+        <path d="M 80,130 Q 90,130 90,120 Q 90,130 100,130 Q 90,130 90,140 Q 90,130 80,130">
+             <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite" />
+             <animateTransform attributeName="transform" type="scale" values="0.8; 1.2; 0.8" dur="2s" repeatCount="indefinite" />
+        </path>
+        <path d="M 620,40 Q 630,40 630,30 Q 630,40 640,40 Q 630,40 630,50 Q 630,40 620,40">
+             <animate attributeName="opacity" values="0.2;1;0.2" dur="3s" repeatCount="indefinite" />
+             <animateTransform attributeName="transform" type="scale" values="0.8; 1.3; 0.8" dur="3s" repeatCount="indefinite" />
+        </path>
+    </g>
+
+    <!-- Text Content -->
+    <text x="50%" y="45%" dominant-baseline="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="42" font-weight="800" fill="url(#textGrad)" text-anchor="middle" letter-spacing="1">
+        Awesome AI Drug Discovery
+    </text>
+    <text x="50%" y="65%" dominant-baseline="middle" font-family="'Segoe UI', Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="400" fill="#cbd5e1" text-anchor="middle" letter-spacing="0.5">
+        Interview Questions &amp; Preparation Guide
+    </text>
+
+</svg>
